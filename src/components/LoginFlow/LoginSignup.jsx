@@ -4,34 +4,46 @@ import {
   TextField,
   Button,
   Container,
-  Paper,
-  makeStyles,
   FormControlLabel,
   Checkbox,
   Typography,
-} from "@material-ui/core";
+} from "@mui/material";
+import makeStyles from "@mui/styles/makeStyles";
 import SvgIcon from "../../assets/SvgIcon";
 
 // Define the styles using makeStyles
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
+  mainContainer: {
+    marginTop: "88px",
+    marginBottom: "32px",
+    width: "368px",
+  },
+  typo: {
+    fontFamily: "Roboto",
+    fontSize: "16px",
+    fontStyle: "normal",
+    fontWeight: "400 !important",
+    lineHeight: "24px",
+    letterSpacing: "0.15px",
+  },
   paper: {
-    marginTop: theme.spacing(8),
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    padding: theme.spacing(3),
   },
   form: {
     width: "100%", // Fix IE 11 issue.
-    marginTop: theme.spacing(1),
+    marginTop: "40px !important",
+    display: "flex",
+    flexDirection: "column",
   },
   submit: {
-    margin: theme.spacing(3, 0, 2),
+    fontWeight: "700 !important",
     padding: " 8px 22px",
-    background: "#00AAD1",
+    background: "#00AAD1 !important",
     borderRadius: "4px",
     "&:hover": {
-      backgroundColor: "#00AAD1",
+      backgroundColor: "#00AAD1 !important",
     },
   },
 }));
@@ -56,8 +68,8 @@ const LoginSignup = () => {
     setState({ ...state, [event.target.name]: event.target.checked });
   };
   return (
-    <Container component="main" maxWidth="xs">
-      <Paper elevation={3} className={classes.paper}>
+    <Container component="main" maxWidth="xs" className={classes.mainContainer}>
+      <div elevation={3} className={classes.paper}>
         <SvgIcon />
         <form className={classes.form} onSubmit={handleLogin}>
           <TextField
@@ -89,7 +101,6 @@ const LoginSignup = () => {
           <FormControlLabel
             control={
               <Checkbox
-                // checked={state.checkedA}
                 onChange={handleChange}
                 name="checkedA"
                 color="primary"
@@ -115,10 +126,12 @@ const LoginSignup = () => {
               gap: "16px",
             }}
           >
-            <Typography variant="p" className={classes.typo}>
+            <Typography variant="body1" className={classes.typo}>
               Forgot your password?
             </Typography>
-            <Typography variant="p">Don’t have an account?</Typography>
+            <Typography variant="body1" className={classes.typo}>
+              Don’t have an account?
+            </Typography>
           </Container>
           <Button
             type="submit"
@@ -130,7 +143,7 @@ const LoginSignup = () => {
             CREATE A NEW ACCOUNT!
           </Button>
         </form>
-      </Paper>
+      </div>
     </Container>
   );
 };

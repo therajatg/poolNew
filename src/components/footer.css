@@ -1,0 +1,26 @@
+.footer-container {
+  background: #181818;
+  position: fixed;
+  bottom: 0;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  flex-direction: column;
+  gap: 68px;
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  line-height: normal;
+}
+.social-items {
+  padding-top: 16px;
+  display: flex;
+  gap: 72px;
+  font-weight: 500;
+}
+.copyright {
+  font-weight: 800;
+  padding-bottom: 49px;
+}

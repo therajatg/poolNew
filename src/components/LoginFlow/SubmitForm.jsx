@@ -1,11 +1,13 @@
-import { Container, makeStyles, Typography, Button } from "@material-ui/core";
+import { Container, Typography, Button } from "@mui/material";
+import makeStyles from "@mui/styles/makeStyles";
 import SvgIcon from "../../assets/SvgIcon";
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
   container: {
     margin: "auto",
     width: "510px",
     textAlign: "center",
-    marginTop: theme.spacing(8),
+    marginTop: "88px",
+    marginBottom: "32px",
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
@@ -15,11 +17,13 @@ const useStyles = makeStyles((theme) => ({
     color: "#000",
     textAlign: "center",
     fontFamily: "Inter",
-    fontSize: "45.78px",
+    fontSize: "45.78px !important",
     fontStyle: " normal",
-    fontWeight: 800,
-    lineHeight: "68.67px" /* 68.67px */,
+    fontWeight: "800 !important",
+    lineHeight: "68.67px",
     letterSpacing: "-0.87px",
+    marginTop: "32px !important",
+    marginBottom: "16px !important",
   },
   accountParagraph: {
     color: "#292929",
@@ -29,18 +33,17 @@ const useStyles = makeStyles((theme) => ({
     fontSize: "14px",
     fontStyle: "normal",
     fontWeight: 500,
-    lineHeight: "23.8px" /* 23.8px */,
+    lineHeight: "23.8px",
     letterSpacing: "-0.266px",
   },
   submit: {
-    margin: theme.spacing(3, 0, 2),
     padding: " 6px 16px",
-    background: "#00AAD1",
+    background: "#00AAD1 !important",
     borderRadius: "4px",
-    fontWeight: 700,
+    fontWeight: "700 !important",
     fontSize: "14px",
     "&:hover": {
-      backgroundColor: "#00AAD1",
+      backgroundColor: "#00AAD1 !important",
     },
   },
   backBtn: {
@@ -63,12 +66,22 @@ const SubmitForm = () => {
           <Typography variant="h1" className={classes.accountHeading}>
             Finish & Submit
           </Typography>
-          <Typography variant="p" className={classes.accountParagraph}>
-            By clicking on sign-up you agree to Pool Party’s Terms and Services.
-            To learn more about our data protection policies, please see Pool
-            Party Privacy Policy. Additional profile information can be accessed
-            under the “My Settings” section.
-          </Typography>
+          <div style={{ padding: "0 16px" }}>
+            <Typography variant="p" className={classes.accountParagraph}>
+              By clicking on sign-up you agree to Pool Party’s
+              <span style={{ textDecorationLine: "underline" }}>
+                Terms and Services.
+              </span>
+              To learn more about our data protection policies, please see
+              <span style={{ textDecorationLine: "underline" }}>
+                Pool Party Privacy Policy.
+              </span>
+              <div style={{ margin: "8px" }}>
+                Additional profile information can be accessed under the “My
+                Settings” section.
+              </div>
+            </Typography>
+          </div>
         </Container>
 
         <div
@@ -77,18 +90,14 @@ const SubmitForm = () => {
             justifyContent: "flex-end",
             gap: "8px",
             alignItems: "center",
+            paddingTop: "72px",
           }}
         >
-          <Button
-            // fullWidth
-            // color="primary"
-            className={classes.backBtn}
-          >
+          <Button className={classes.backBtn} disabled>
             BACK
           </Button>
           <Button
             type="submit"
-            // fullWidth
             variant="contained"
             color="primary"
             className={classes.submit}

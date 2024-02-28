@@ -1,56 +1,56 @@
-import {
-  Container,
-  makeStyles,
-  Typography,
-  TextField,
-  Button,
-} from "@material-ui/core";
+import { Container, Typography, TextField, Button } from "@mui/material";
+import makeStyles from "@mui/styles/makeStyles";
 import SvgIcon from "../../assets/SvgIcon";
 import { useState } from "react";
 import Progressbar from "../Progressbar";
 
-const useStyles = makeStyles((theme) => ({  
+const useStyles = makeStyles(() => ({
   container: {
-    margin:"auto",
-    width: "510px", 
+    margin: "auto",
+    width: "510px",
     textAlign: "center",
-    marginTop: theme.spacing(8),
+    marginTop: "88px",
+    marginBottom: "32px",
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    padding: "0 82px",
   },
   accountHeading: {
+    marginTop: "13px !important",
     color: "#000",
     textAlign: "center",
     fontFamily: "Inter",
-    fontSize: "45.78px",
+    fontSize: "45.78px !important",
     fontStyle: " normal",
-    fontWeight: 800,
-    lineHeight: "68.67px" /* 68.67px */,
+    fontWeight: " 800 !important",
+    lineHeight: "68.67px",
     letterSpacing: "-0.87px",
   },
   accountParagraph: {
+    marginTop: "8px !important",
     color: "#292929",
-    width: "366px",
+    width: "366px !important",
     textAlign: "center",
     fontFamily: "Inter",
     fontSize: "14px",
     fontStyle: "normal",
-    fontWeight: 500,
-    lineHeight: "23.8px" /* 23.8px */,
+    fontWeight: "500 !marginTop",
+    lineHeight: "23.8px",
     letterSpacing: "-0.266px",
   },
   submit: {
-    margin: theme.spacing(3, 0, 2),
     padding: " 6px 16px",
-    background: "#00AAD1",
+    background: "#00AAD1 !important",
     borderRadius: "4px",
-    fontWeight: 700,
+    fontWeight: "700 !important",
     fontSize: "14px",
     "&:hover": {
-      backgroundColor: "#00AAD1",
+      backgroundColor: "#00AAD1 !important",
     },
+  },
+  accountForm: {
+    marginTop: "32px",
+    marginBottom: "125px",
   },
   backBtn: {
     padding: "6px 8px",
@@ -67,20 +67,21 @@ const AccountSetup = () => {
   const classes = useStyles();
   return (
     <>
-
       <div className={classes.container}>
         <SvgIcon />
         <Container>
           <Typography variant="h1" className={classes.accountHeading}>
             Account Setup
           </Typography>
-          <Typography variant="p" className={classes.accountParagraph}>
-            As much as we want to know everything about you, we can settle for a
-            few basic questions to get you up and running with your new Pool
-            Party Gaming account!
-          </Typography>
+          <div style={{ padding: "0 82px" }}>
+            <Typography variant="p" className={classes.accountParagraph}>
+              As much as we want to know everything about you, we can settle for
+              a few basic questions to get you up and running with your new Pool
+              Party Gaming account!
+            </Typography>
+          </div>
         </Container>
-        <form>
+        <form className={classes.accountForm}>
           <TextField
             style={{ width: "346px" }}
             type="email"
@@ -100,19 +101,15 @@ const AccountSetup = () => {
               display: "flex",
               justifyContent: "flex-end",
               gap: "8px",
+              marginTop: "16px",
               alignItems: "center",
             }}
           >
-            <Button
-              // fullWidth
-              // color="primary"
-              className={classes.backBtn}
-            >
+            <Button className={classes.backBtn} disabled>
               BACK
             </Button>
             <Button
               type="submit"
-              // fullWidth
               variant="contained"
               color="primary"
               className={classes.submit}
@@ -121,9 +118,10 @@ const AccountSetup = () => {
             </Button>
           </div>
         </form>
+
         <Progressbar />
       </div>
-     </>
+    </>
   );
 };
 

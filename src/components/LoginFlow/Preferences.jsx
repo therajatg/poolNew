@@ -1,36 +1,37 @@
-import {
-  Container,
-  makeStyles,
-  Typography,
-  TextField,
-  Button,
-} from "@material-ui/core";
+import { Container, Typography, TextField, Button } from "@mui/material";
+import makeStyles from "@mui/styles/makeStyles";
 import SvgIcon from "../../assets/SvgIcon";
 import { useState } from "react";
 import Progressbar from "../Progressbar";
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
   container: {
     margin: "auto",
     width: "510px",
     textAlign: "center",
-    marginTop: theme.spacing(8),
+    marginTop: "88px",
+    marginBottom: "32px",
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    padding: "0 82px",
+  },
+  preferenceForm: {
+    marginBottom: "72px",
   },
   accountHeading: {
+    marginTop: "32px !important",
     color: "#000",
     textAlign: "center",
     fontFamily: "Inter",
-    fontSize: "45.78px",
+    fontSize: "45.78px !important",
     fontStyle: " normal",
-    fontWeight: 800,
+    fontWeight: "800 !important",
     lineHeight: "68.67px" /* 68.67px */,
     letterSpacing: "-0.87px",
   },
   accountParagraph: {
+    marginTop: "8px !important",
+    marginBottom: "32px !important",
     color: "#292929",
     width: "366px",
     textAlign: "center",
@@ -38,18 +39,17 @@ const useStyles = makeStyles((theme) => ({
     fontSize: "14px",
     fontStyle: "normal",
     fontWeight: 500,
-    lineHeight: "23.8px" /* 23.8px */,
+    lineHeight: "23.8px",
     letterSpacing: "-0.266px",
   },
-  submit: {
-    margin: theme.spacing(3, 0, 2),
+  submitBtn: {
     padding: " 6px 16px",
-    background: "#00AAD1",
+    background: "#00AAD1 !important",
     borderRadius: "4px",
-    fontWeight: 700,
+    fontWeight: "700 !important",
     fontSize: "14px",
     "&:hover": {
-      backgroundColor: "#00AAD1",
+      backgroundColor: "#00AAD1 !important",
     },
   },
   backBtn: {
@@ -69,69 +69,66 @@ const Preferences = () => {
   return (
     <>
       <div className={classes.container}>
-        <SvgIcon />
-        <Container>
-          <Typography variant="h1" className={classes.accountHeading}>
-            Preferences
-          </Typography>
-          <Typography variant="p" className={classes.accountParagraph}>
-            You’re almost done, this is the last step! Note that you can always
-            change your selections later via “My Profile”.
-          </Typography>
-        </Container>
-        <form>
-          <TextField
-            style={{ width: "370px" }}
-            variant="outlined"
-            margin="normal"
-            required
-            fullWidth
-            name="favoriteSport"
-            label="Favorite Sport"
-            type="text"
-            id="favoriteSport"
-            value={favoriteSport}
-            onChange={(e) => setFavoriteSport(e.target.value)}
-          />
-          <TextField
-            style={{ width: "370px" }}
-            variant="outlined"
-            margin="normal"
-            required
-            fullWidth
-            name="favoriteTeam"
-            label="Favorite Team"
-            type="text"
-            id="favoriteTeam"
-            value={favoriteTeam}
-            onChange={(e) => setFavoriteTeam(e.target.value)}
-          />
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "flex-end",
-              gap: "8px",
-              alignItems: "center",
-            }}
-          >
-            <Button
-              // fullWidth
-              // color="primary"
-              className={classes.backBtn}
+        <div style={{ padding: "0 82px" }}>
+          <SvgIcon />
+          <Container>
+            <Typography variant="h1" className={classes.accountHeading}>
+              Preferences
+            </Typography>
+            <Typography variant="p" className={classes.accountParagraph}>
+              You’re almost done, this is the last step! Note that you can
+              always change your selections later via “My Profile”.
+            </Typography>
+          </Container>
+          <form className={classes.preferenceForm}>
+            <TextField
+              variant="outlined"
+              margin="normal"
+              required
+              fullWidth
+              name="favoriteSport"
+              label="Favorite Sport"
+              type="text"
+              id="favoriteSport"
+              value={favoriteSport}
+              onChange={(e) => setFavoriteSport(e.target.value)}
+            />
+            <TextField
+              variant="outlined"
+              margin="normal"
+              required
+              fullWidth
+              name="favoriteTeam"
+              label="Favorite Team"
+              type="text"
+              id="favoriteTeam"
+              value={favoriteTeam}
+              onChange={(e) => setFavoriteTeam(e.target.value)}
+            />
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "flex-end",
+                gap: "8px",
+                alignItems: "center",
+                marginTop: "1rem",
+              }}
             >
-              BACK
-            </Button>
-            <Button
-              type="submit"
-              // fullWidth
-              variant="contained"
-              color="primary"
-              className={classes.submit}
-            >
-              CONTINUE
-            </Button>
-          </div>
-        </form>
+              <Button className={classes.backBtn} disabled>
+                BACK
+              </Button>
+              <Button
+                type="submit"
+                variant="contained"
+                color="primary"
+                className={classes.submitBtn}
+              >
+                CONTINUE
+              </Button>
+            </div>
+          </form>
+        </div>
+
         <Progressbar />
       </div>
     </>

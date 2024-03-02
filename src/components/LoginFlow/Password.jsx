@@ -2,7 +2,6 @@ import { Container, Typography, TextField, Button } from "@mui/material";
 import makeStyles from "@mui/styles/makeStyles";
 import SvgIcon from "../../assets/SvgIcon";
 import { useState } from "react";
-import Progressbar from "../Progressbar";
 
 const useStyles = makeStyles(() => ({
   container: {
@@ -63,7 +62,7 @@ const useStyles = makeStyles(() => ({
     },
   },
 }));
-const Password = () => {
+const Password = ({ handleBack, handleNext }) => {
   const [password, setPassword] = useState("");
   const classes = useStyles();
   return (
@@ -104,7 +103,7 @@ const Password = () => {
                 alignItems: "center",
               }}
             >
-              <Button className={classes.backBtn} disabled>
+              <Button className={classes.backBtn} onClick={handleBack}>
                 BACK
               </Button>
               <Button
@@ -112,14 +111,13 @@ const Password = () => {
                 variant="contained"
                 color="primary"
                 className={classes.submit}
+                onClick={handleNext}
               >
                 CONTINUE
               </Button>
             </div>
           </form>
         </div>
-
-        <Progressbar />
       </div>
     </>
   );

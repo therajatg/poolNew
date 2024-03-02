@@ -2,7 +2,6 @@ import { Container, Typography, TextField, Button } from "@mui/material";
 import makeStyles from "@mui/styles/makeStyles";
 import SvgIcon from "../../assets/SvgIcon";
 import { useState } from "react";
-import Progressbar from "../Progressbar";
 
 const useStyles = makeStyles(() => ({
   container: {
@@ -10,7 +9,7 @@ const useStyles = makeStyles(() => ({
     width: "510px",
     textAlign: "center",
     marginTop: "88px",
-    marginBottom: "32px",
+    // marginBottom: "32px",
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
@@ -62,7 +61,7 @@ const useStyles = makeStyles(() => ({
     },
   },
 }));
-const AccountSetup = () => {
+const AccountSetup = ({ handleBack, handleNext }) => {
   const [email, setEmail] = useState("");
   const classes = useStyles();
   return (
@@ -105,7 +104,7 @@ const AccountSetup = () => {
               alignItems: "center",
             }}
           >
-            <Button className={classes.backBtn} disabled>
+            <Button className={classes.backBtn} onClick={handleBack}>
               BACK
             </Button>
             <Button
@@ -113,13 +112,12 @@ const AccountSetup = () => {
               variant="contained"
               color="primary"
               className={classes.submit}
+              onClick={handleNext}
             >
               CONTINUE
             </Button>
           </div>
         </form>
-
-        <Progressbar />
       </div>
     </>
   );

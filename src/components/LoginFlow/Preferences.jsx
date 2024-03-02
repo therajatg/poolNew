@@ -2,7 +2,6 @@ import { Container, Typography, TextField, Button } from "@mui/material";
 import makeStyles from "@mui/styles/makeStyles";
 import SvgIcon from "../../assets/SvgIcon";
 import { useState } from "react";
-import Progressbar from "../Progressbar";
 
 const useStyles = makeStyles(() => ({
   container: {
@@ -62,7 +61,7 @@ const useStyles = makeStyles(() => ({
     },
   },
 }));
-const Preferences = () => {
+const Preferences = ({ handleBack, handleNext }) => {
   const [favoriteSport, setFavoriteSport] = useState("");
   const [favoriteTeam, setFavoriteTeam] = useState("");
   const classes = useStyles();
@@ -114,7 +113,7 @@ const Preferences = () => {
                 marginTop: "1rem",
               }}
             >
-              <Button className={classes.backBtn} disabled>
+              <Button className={classes.backBtn} onClick={handleBack}>
                 BACK
               </Button>
               <Button
@@ -122,14 +121,13 @@ const Preferences = () => {
                 variant="contained"
                 color="primary"
                 className={classes.submitBtn}
+                onClick={handleNext}
               >
                 CONTINUE
               </Button>
             </div>
           </form>
         </div>
-
-        <Progressbar />
       </div>
     </>
   );
